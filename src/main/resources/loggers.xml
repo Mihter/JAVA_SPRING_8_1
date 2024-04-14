@@ -10,6 +10,7 @@
  		http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
+	<import resource="db.xml"/>
 	<bean id="consoleEventLogger" class="com.yet.spring.core.loggers.ConsoleEventLogger"
 		p:name="Console logger" />
 
@@ -19,7 +20,7 @@
 	</bean>
 
 	<bean id="cacheFileEventLogger" class="com.yet.spring.core.loggers.CacheFileEventLogger"
-		destroy-method="destroy" parent="fileEventLogger">
+		 destroy-method="destroy" parent="fileEventLogger">
 		<constructor-arg index="1" value="5" />
 		<property name="name" value="#{fileEventLogger.name + ' with cache'}" />
 	</bean>
